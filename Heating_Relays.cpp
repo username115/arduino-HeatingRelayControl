@@ -26,7 +26,8 @@ ThermalDelta solar_delta(&solar, &solar_tank, 10.0, 5.0, solar_relay_pin,
 relay_active_high);
 ThermalDelta fire_delta(&fire, &fire_tank, 10.0, 5.0, fire_relay_pin,
 relay_active_high);
-ThermalDelta HVAC_delta(&tank, 0, 100.0, 90.0, HVAC_relay_pin, relay_active_high);
+ThermalDelta HVAC_delta(&tank, 0, 100.0, 90.0, HVAC_relay_pin,
+relay_active_high);
 
 //The setup function is called once at startup of the sketch
 void setup() {
@@ -77,6 +78,6 @@ void loop() {
 	 Serial.print("Tank Temp: ");
 	 Serial.println(tank.lastTemp());*/
 
-	delay(100);
+	delay(1000);
 
 }

@@ -32,12 +32,9 @@ ThermalDelta::~ThermalDelta() {
 }
 
 float ThermalDelta::runDelta() {
-	for (int i = 0; i < MAX_RECORDED_TEMPS; i++) {
-		m_high->readTemp();
-		if (m_low)
-			m_low->readTemp();
-		delay(100);
-	}
+	m_high->readTemp();
+	if (m_low)
+		m_low->readTemp();
 
 	m_last = m_high->average3Temp() - (m_low ? m_low->average3Temp() : 0.0);
 
@@ -53,12 +50,9 @@ float ThermalDelta::runDelta() {
 }
 
 float ThermalDelta::runDeltaNoOutput() {
-	for (int i = 0; i < MAX_RECORDED_TEMPS; i++) {
-		m_high->readTemp();
-		if (m_low)
-			m_low->readTemp();
-		delay(100);
-	}
+	m_high->readTemp();
+	if (m_low)
+		m_low->readTemp();
 
 	m_last = m_high->average3Temp() - (m_low ? m_low->average3Temp() : 0.0);
 
